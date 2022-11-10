@@ -6,6 +6,7 @@ Created on Thu Nov  3 23:10:10 2022
 """
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 def ThomasSolve(a,b,c,d):
@@ -32,7 +33,7 @@ def ThomasSolve(a,b,c,d):
 
 u1 = 0
 un = 0
-n=51
+n=15
 
 sizeA = (n,n)
 sizeD = (n,1)
@@ -74,6 +75,12 @@ for i in range (n):
 
 
 u = ThomasSolve(a,b,c,D)
+
+x = 1
+y = np.linspace(0,2,n)
+xmesh,ymesh = np.meshgrid(x,y)
+
+plt.quiver(xmesh,ymesh,u,0)
 
 print(u)
     
