@@ -27,13 +27,15 @@ def ThomasSolve(a,b,c,d):
 
     for i in range(-2, -n-1, -1):
         x[i] = d[i] - c[i] * x[i+1]
-
+    
+    x = np.array(x)
+    
     return x
     
 
 u1 = 0
 un = 0
-n=15
+n=5
 
 sizeA = (n,n)
 sizeD = (n,1)
