@@ -63,10 +63,22 @@ Cref = 0.1 #[kg/m^3]
 k = 5 #[1/s]
 
 
-n=10#Puntos espaciales de la malla
-nT = 5000 #Puntos temporales
+n=45#Puntos espaciales de la malla
+nT = 1000 #Puntos temporales
 
 Ttotal = 10 #[s]
+
+DeltaX = 0.02 #[m]
+DeltaT = 0.01 #[s]
+
+tFinal = (U/L)*Ttotal
+nT = Ttotal/DeltaT
+nT = (int(nT)) + 1
+
+n = int(L/DeltaX) + 1
+
+DeltaT = (U/L)*DeltaT
+DeltaX = (1/L)*DeltaX
 
 
 sizeA = (n,n)
@@ -77,8 +89,6 @@ sizeD = (n,1)
 sizeY = (n,nT)
 #sizeY = (nT,n)
 
-DeltaX = L/n
-DeltaT = Ttotal/nT
 
 c1 = (1/DeltaT)+((U**2)/(2*DeltaX))+((L*U)/(2*D))+((L*k)/(2*U))+((D*U)/(L*(DeltaX**2)))
 c2 = (D*U)/(L*(DeltaX**2))
@@ -94,8 +104,9 @@ B = np.zeros(sizeB) #Matriz B
 C = np.zeros(sizeC) #Vector c
 DV = np.zeros(sizeD) #Vector independiente
 
-time = np.linspace(0, Ttotal, nT)
-x = np.linspace(0, L, n)
+#Vectores adimensionalizados
+time = np.linspace(0, tFinal, nT)
+x = np.linspace(0, 1, n)
 
 a = np.zeros(sizeD)
 b = np.zeros(sizeD)
@@ -155,4 +166,5 @@ for k in range (len(time)):
 
 y10 = Y[:,nT-1]
 y10 = np.multiply(Cref,y10)
+x = np.multiply(L,x)
 plt.plot(x,y10)
