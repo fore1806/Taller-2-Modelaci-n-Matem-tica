@@ -83,6 +83,8 @@ y = np.linspace(0,2,n)
 xmesh,ymesh = np.meshgrid(x,y)
 
 plt.quiver(xmesh,ymesh,u,0)
+plt.plot(xmesh,ymesh)
+plt.show()
 
 print(u)
     
