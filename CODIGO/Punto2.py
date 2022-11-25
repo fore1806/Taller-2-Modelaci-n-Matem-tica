@@ -98,7 +98,7 @@ k=-3/Re
 miu=1 #viscosidad
 um=2 #m/s
 h=5 #m
-uan=(-3/2)*(y**2)+(25/16)*y
+uan=(-3/2)*(y**2)+(25/8)*y
 plt.figure(3)
 plt.plot(uan,y)
 plt.show
