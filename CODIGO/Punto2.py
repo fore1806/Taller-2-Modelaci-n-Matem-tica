@@ -35,7 +35,7 @@ def ThomasSolve(a,b,c,d):
 
 u1 = 0
 un = 0
-n=5
+n=10
 
 sizeA = (n,n)
 sizeD = (n,1)
@@ -98,7 +98,7 @@ k=-3/Re
 miu=1 #viscosidad
 um=2 #m/s
 h=5 #m
-uan=(y**2)*(k/(2*miu))+y*(0.25*um/(2*h)-(h*k/miu))
+uan=(-3/2)*(y**2)+(25/16)*y
 plt.figure(3)
 plt.plot(uan,y)
 plt.show
