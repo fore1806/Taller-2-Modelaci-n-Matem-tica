@@ -82,10 +82,24 @@ x = 1
 y = np.linspace(0,2,n)
 xmesh,ymesh = np.meshgrid(x,y)
 
+#flechitas
+plt.figure(1)
 plt.quiver(xmesh,ymesh,u,0)
-plt.plot(xmesh,ymesh)
+# Curva
+plt.figure(2)
+plt.plot(u,y)
 plt.show()
 
 print(u)
-    
+
+#Procedimiento analitico: 
+Re=300
+k=-3/Re
+miu=1 #viscosidad
+um=2 #m/s
+h=5 #m
+uan=(y**2)*(k/(2*miu))+y*(0.25*um/(2*h)-(h*k/miu))
+plt.figure(3)
+plt.plot(uan,y)
+plt.show
     
