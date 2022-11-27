@@ -66,7 +66,7 @@ k = 5 #[1/s]
 n=45#Puntos espaciales de la malla
 nT = 1000 #Puntos temporales
 
-Ttotal = 10 #[s]
+Ttotal = 1 #[s]
 
 DeltaX = 0.02 #[m]
 DeltaT = 0.01 #[s]
@@ -168,3 +168,4 @@ y10 = Y[:,nT-1]
 y10 = np.multiply(Cref,y10)
 x = np.multiply(L,x)
 plt.plot(x,y10)
+print("finished")

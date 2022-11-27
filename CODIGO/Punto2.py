@@ -35,7 +35,7 @@ def ThomasSolve(a,b,c,d):
 
 u1 = 0
 un = 0
-n=10
+n=100  #5  #10  #20  #50 #100
 
 sizeA = (n,n)
 sizeD = (n,1)
@@ -83,11 +83,16 @@ y = np.linspace(0,2,n)
 xmesh,ymesh = np.meshgrid(x,y)
 
 #flechitas
-plt.figure(1)
-plt.quiver(xmesh,ymesh,u,0)
+#plt.figure(1)
+#plt.quiver(xmesh,ymesh,u,0)
+
 # Curva
 plt.figure(2)
-plt.plot(u,y)
+plt.plot(u,y,marker="o",mfc = 'w',ms =0)
+plt.grid()
+plt.title("Perfil de velocidad por Diferencias Finitas con n=100")
+plt.xlabel("velocidad el fluido u*")
+plt.ylabel("altura y*")
 plt.show()
 
 print(u)
@@ -95,11 +100,31 @@ print(u)
 #Procedimiento analitico: 
 Re=300
 k=-3/Re
-miu=1 #viscosidad
-um=2 #m/s
-h=5 #m
 uan=(-3/2)*(y**2)+(25/8)*y
 plt.figure(3)
 plt.plot(uan,y)
+plt.grid()
+plt.title("Perfil de velocidad analítico")
+plt.xlabel("velocidad del fluido u*")
+plt.ylabel("altura y*")
 plt.show
     
+#gráfica de Error: 
+error=[]
+print(len(u))
+for i in range(len(u)):
+    error.append(uan[i]-u[i])
+    
+plt.figure(4)
+plt.plot(y,error)
+plt.grid()
+plt.title("Error Solución por diferencias finitas con n=100")
+plt.ylabel("error en u*")
+plt.xlabel("altura y*")
+plt.show()  
+
+#valores de h a discutir:
+h1=0.5
+h2=1
+h3=1.5
+h4=2
